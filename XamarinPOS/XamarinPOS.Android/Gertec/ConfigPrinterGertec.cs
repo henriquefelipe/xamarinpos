@@ -1,6 +1,6 @@
-﻿namespace XamarinPOS.Droid
+﻿namespace XamarinPOS.Droid.Gertec
 {
-    public class ConfigPrint
+    public class ConfigPrinterGertec
     {
 
         private string fonte = "NORMAL";
@@ -14,7 +14,7 @@
         private bool sublinhado;
         private int avancaLinhas;
 
-        public ConfigPrint()
+        public ConfigPrinterGertec()
         {
             this.fonte = "NORMAL";
             this.alinhamento = "CENTER";
@@ -29,7 +29,7 @@
             this.avancaLinhas = 10;
         }
 
-        public ConfigPrint(string fonte,
+        public ConfigPrinterGertec(string fonte,
                            string alinhamento,
                            int tamanho,
                            int offSet,
@@ -48,7 +48,7 @@
             this.sublinhado = sublinhado;
         }
 
-        public ConfigPrint(string fonte,
+        public ConfigPrinterGertec(string fonte,
                            string alinhamento,
                            int tamanho,
                            int offSet,

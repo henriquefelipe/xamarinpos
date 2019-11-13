@@ -11,15 +11,18 @@ using System;
 using System.Threading;
 using ZXing;
 using ZXing.Common;
+using ZXing.Mobile;
 
-namespace XamarinPOS.Droid
+namespace XamarinPOS.Droid.Gertec
 {
-    public class GertecPrinter : IGertecPrinter
+    public class HelperPrinterGertec
     {
         // Defines
         private const string IMPRESSORA_ERRO = "Impressora com erro.";
 
         private string modelo = CrossDeviceInfo.Current.Model;
+
+        private byte columnsscaled = 68;
 
         // Statics
         private static bool isPrintInit = false;
@@ -30,18 +33,16 @@ namespace XamarinPOS.Droid
         private GEDI_PRNTR_st_PictureConfig pictureConfig;
         private GEDI_PRNTR_e_Status status;
 
-        private ConfigPrint configPrint;
+        private ConfigPrinterGertec configPrint;
         private Typeface typeface;
 
         // Thread starGedi;
-
-        private Activity mainActivity;
+        
         private Context mainContext;
 
 
-        public GertecPrinter(Activity act, Context ctx)
-        {
-            this.mainActivity = act;
+        public HelperPrinterGertec(Context ctx)
+        {            
             this.mainContext = ctx;
             startGedi();
         }
@@ -214,6 +215,7 @@ namespace XamarinPOS.Droid
                 {
                     throw new Exception(IMPRESSORA_ERRO);
                 }
+                texto = format(texto);
                 sPrintLine(texto);
             }
             catch (Exception e)
@@ -234,6 +236,7 @@ namespace XamarinPOS.Droid
                 }
                 tamanhoOld = this.configPrint.Tamanho;
                 this.configPrint.Tamanho = tamanho;
+                texto = format(texto);
                 sPrintLine(texto);
                 this.configPrint.Tamanho = tamanhoOld;
             }
@@ -255,6 +258,7 @@ namespace XamarinPOS.Droid
                 }
                 negritoOld = this.configPrint.Negrito;
                 this.configPrint.Negrito = negrito;
+                texto = format(texto);
                 sPrintLine(texto);
                 this.configPrint.Negrito = negritoOld;
             }
@@ -278,6 +282,7 @@ namespace XamarinPOS.Droid
                 negritoOld = this.configPrint.Negrito;
                 italicoOld = this.configPrint.Italico;
                 this.configPrint.Negrito = negrito;
+                texto = format(texto);
                 sPrintLine(texto);
                 this.configPrint.Negrito = negritoOld;
                 this.configPrint.Italico = italicoOld;
@@ -304,6 +309,7 @@ namespace XamarinPOS.Droid
                 italicoOld = this.configPrint.Italico;
                 sublinhadoOld = this.configPrint.SubLinhado;
                 this.configPrint.Negrito = negrito;
+                texto = format(texto);
                 sPrintLine(texto);
                 this.configPrint.Negrito = negritoOld;
                 this.configPrint.Italico = italicoOld;
@@ -324,7 +330,7 @@ namespace XamarinPOS.Droid
             return false;
         }
 
-        public void setConfigImpressao(ConfigPrint config)
+        public void setConfigImpressao(ConfigPrinterGertec config)
         {
             this.configPrint = config;
 
@@ -430,6 +436,28 @@ namespace XamarinPOS.Droid
 
         }
 
+        private string format(string s)
+        {
+            if (s.IndexOf('»') >= 0)
+            {
+                char padchar;
+                int p = s.IndexOf('»');
+                string a, b;
+                a = s.Substring(0, p);
+                b = s.Substring(p + 1);
+                if (a.StartsWith("--"))
+                    padchar = '-';
+                else
+                    padchar = ' ';
+                int l = columnsscaled - (b.Length + 1);
+                if (l >= a.Length)
+                    s = a.PadRight(l, padchar) + " " + b;
+                else
+                    s = a.Substring(0, l) + " " + b;
+            }
+
+            return s;
+        }
     }
 
 }

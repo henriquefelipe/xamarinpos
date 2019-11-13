@@ -13,9 +13,16 @@ namespace XamarinPOS
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        public IPrinterGerter _printerGertec { get; }
         public MainPage()
         {
             InitializeComponent();
+            _printerGertec = DependencyService.Get<IPrinterGerter>();
+        }
+
+        public void Button_OnClicked(object sender, EventArgs e)
+        {
+            _printerGertec.MFe();
         }
     }
 }

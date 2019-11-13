@@ -7,10 +7,10 @@
              x:Class="XamarinPOS.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Button Text="Toque aqui!" 
+           VerticalOptions="Center" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           Clicked="Button_OnClicked" />
     </StackLayout>
 
 </ContentPage>
