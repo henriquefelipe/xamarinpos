@@ -10,7 +10,7 @@ namespace XamarinPOS.Droid.Gertec
         HelperPrinterGertec printer;
         ConfigPrinterGertec configPrint;
 
-        const string _linha = "------------------------------------------";
+        const string _pontilhado = "---------------------------";
 
         public PrinterGertec()
         {
@@ -24,7 +24,7 @@ namespace XamarinPOS.Droid.Gertec
         {            
             try
             {                                
-                configPrint.Tamanho = 23;
+                configPrint.Tamanho = 21;
                 configPrint.Alinhamento = "CENTER";
                 configPrint.Negrito = true;
                 printer.setConfigImpressao(configPrint);
@@ -37,9 +37,10 @@ namespace XamarinPOS.Droid.Gertec
                 printer.ImprimeTexto("CNPJ 00.000.000/0000-00 I.E. 000.000.000.00");
                 printer.ImprimeTexto("Rua Afonso Arinos, 1277 - Centro - Fone(00) 1234-456789");
 
-                configPrint.IHeight = 10;
+                configPrint.Tamanho = 21;
+                configPrint.Negrito = true;                
                 printer.setConfigImpressao(configPrint);
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "CENTER";
@@ -47,12 +48,12 @@ namespace XamarinPOS.Droid.Gertec
                 printer.setConfigImpressao(configPrint);
                 printer.ImprimeTexto("Extrato 0004243");
 
-                configPrint.Tamanho = 23;
+                configPrint.Tamanho = 21;
                 configPrint.Alinhamento = "CENTER";
                 configPrint.Negrito = true;
                 printer.setConfigImpressao(configPrint);
                 printer.ImprimeTexto("CUPOM FISCAL ELETRONICO - SAT");
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "LEFT";
@@ -69,18 +70,18 @@ namespace XamarinPOS.Droid.Gertec
                 configPrint.Negrito = true;
                 configPrint.Tamanho = 23;
                 printer.setConfigImpressao(configPrint);
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "LEFT";
                 configPrint.Negrito = false;
                 printer.setConfigImpressao(configPrint);
-                printer.ImprimeTexto("# COD  DESC      QTD  UN    VL UNT R$    VL TOT R$");
+                printer.ImprimeTexto("# COD  DESC     QTD  UN   VL UNT R$  VL TOT R$");
 
                 configPrint.Negrito = true;
                 configPrint.Tamanho = 23;
                 printer.setConfigImpressao(configPrint);
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "LEFT";
@@ -92,7 +93,7 @@ namespace XamarinPOS.Droid.Gertec
                 configPrint.Negrito = true;
                 configPrint.Tamanho = 23;
                 printer.setConfigImpressao(configPrint);
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "LEFT";
@@ -110,7 +111,7 @@ namespace XamarinPOS.Droid.Gertec
 
                 configPrint.Tamanho = 23;
                 printer.setConfigImpressao(configPrint);
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "LEFT";
@@ -127,7 +128,7 @@ namespace XamarinPOS.Droid.Gertec
                 configPrint.Negrito = true;
                 configPrint.Tamanho = 23;
                 printer.setConfigImpressao(configPrint);
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "LEFT";
@@ -153,7 +154,7 @@ namespace XamarinPOS.Droid.Gertec
                 configPrint.Negrito = true;
                 configPrint.Tamanho = 23;
                 printer.setConfigImpressao(configPrint);
-                printer.sPrintLine(_linha);
+                printer.sPrintLine(_pontilhado);
 
                 configPrint.Tamanho = 17;
                 configPrint.Alinhamento = "CENTER";

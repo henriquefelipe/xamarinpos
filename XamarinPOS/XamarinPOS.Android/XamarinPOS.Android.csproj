@@ -56,6 +56,9 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ger7Tef">
+      <HintPath>..\..\DLL\Ger7Tef.dll</HintPath>
+    </Reference>
     <Reference Include="GPOS700">
       <HintPath>..\..\DLL\GPOS700.dll</HintPath>
     </Reference>
@@ -68,6 +71,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugin.DeviceInfo">
       <Version>4.1.1</Version>
     </PackageReference>

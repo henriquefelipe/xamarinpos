@@ -22,7 +22,7 @@ namespace XamarinPOS.Droid.Gertec
 
         private string modelo = CrossDeviceInfo.Current.Model;
 
-        private byte columnsscaled = 68;
+        private byte columnsscaled = 48;
 
         // Statics
         private static bool isPrintInit = false;

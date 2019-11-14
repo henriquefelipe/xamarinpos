@@ -16,7 +16,7 @@
 
         public ConfigPrinterGertec()
         {
-            this.fonte = "NORMAL";
+            this.fonte = "MONOSPACE";
             this.alinhamento = "CENTER";
             this.tamanho = 20;
             this.offSet = 0;
