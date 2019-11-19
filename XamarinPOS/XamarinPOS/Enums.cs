@@ -4,8 +4,10 @@ using System.Text;
 
 namespace XamarinPOS
 {
-    public interface IPrinterGerter
+    public enum PagamentoOperacao
     {
-        string MFe();
+        Credito = 1,
+        Debito = 2,
+        Voucher = 3
     }
 }

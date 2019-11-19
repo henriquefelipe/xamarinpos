@@ -11,11 +11,12 @@ namespace XamarinPOS
             InitializeComponent();
 
             MainPage = new MainPage();
-        }
+        }      
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            //CrossCurrentActivity.Current.Init(this);
         }
 
         protected override void OnSleep()

@@ -13,16 +13,22 @@ namespace XamarinPOS
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        public IPrinterGerter _printerGertec { get; }
+        public IGertec _gertec { get; }
         public MainPage()
         {
             InitializeComponent();
-            _printerGertec = DependencyService.Get<IPrinterGerter>();
+            _gertec = DependencyService.Get<IGertec>();
         }
 
         public void Button_OnClicked(object sender, EventArgs e)
         {
-            _printerGertec.MFe();
+            var valor = Utils.GeraValor();
+            Random random = new Random();
+            var id = random.Next(0, 10000);
+            new System.Threading.Thread(new System.Threading.ThreadStart(() => {
+                _gertec.Pagamento(id, (decimal)valor, PagamentoOperacao.Credito, 1);
+            })).Start();
+           
         }
     }
 }
